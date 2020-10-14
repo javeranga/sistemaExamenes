@@ -1,7 +1,21 @@
 /*cargar el modelo*/
 const User = require('../models/User')
 
+//ENCRIPTACION
+// cargar la libreria para criptografiar
+const crypto = require('crypto')
+const bcrypt = require('bcryptjs')
 
+const key = 'llavesecretaSistemaExamenes'
+const iv = 'vectorparaEmcriptacion'
+
+let encrypt = (password) => {
+    let chiper = crypto.createCipheriv('aes-256-cbc',key,iv)
+    let pass = chiper.update(password,'utf8','hex')
+    pass += chiper.final('hex')
+    return pass
+}
+//fin ENCRIPTACION
 
 /*Creamos funciones*/
 exports.create = (req, res) => {
