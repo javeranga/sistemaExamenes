@@ -3,6 +3,10 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const {conectar} = require('./connect')
 const routes = require('./routes/userRoutes')
+const port = process.env.PORT || 3000
+
+
+
 
 /* en esta constante se almacena la conexion a express*/
 const app = express()
@@ -18,7 +22,7 @@ require('./routes/userRoutes')(app)
 
 
 /*conectarse al puerto*/
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('Conexión exitosa')
 })
 
