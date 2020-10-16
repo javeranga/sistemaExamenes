@@ -26,7 +26,6 @@ exports.create = (req, res) => {
     /* en user.algo guarde lo que obtuvo del frontened*/
     user.firstName = params.firstName
     user.lastName = params.lastName
-    user.userName=params.userName
     user.password = params.password    
     user.email = params.email
     user.faculty=params.faculty
@@ -94,7 +93,6 @@ exports.update = (req,res) => {
     const user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        userName: req.body.userName,
         password: req.body.password,
         email: req.body.email,
         faculty: req.body.faculty,
