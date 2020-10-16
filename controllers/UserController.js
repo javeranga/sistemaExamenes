@@ -26,9 +26,11 @@ exports.create = (req, res) => {
     /* en user.algo guarde lo que obtuvo del frontened*/
     user.firstName = params.firstName
     user.lastName = params.lastName
+    user.userName=params.userName
+    user.password = params.password    
     user.email = params.email
-    user.age=params.age
-
+    user.faculty=params.faculty
+    user.role=params.role
     /*metodo de mongoose para insertar datos*/
     user.save((error, userCreated) =>{
         if(error){
@@ -92,8 +94,11 @@ exports.update = (req,res) => {
     const user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        userName: req.body.userName,
+        password: req.body.password,
         email: req.body.email,
-        age: req.body.age
+        faculty: req.body.faculty,
+        role: req.body.role
     } 
     //busca en la base de datos y actualiza
     User.findByIdAndUpdate(req.params.id, user,{new:true})

@@ -7,8 +7,11 @@ mongoose.Promise = global.Promise
 const UserSchema = new mongoose.Schema({
     firstName: {type:String,required:true},
     lastName: {type:String,required:true},
+    userName: {type:String,required:true},
+    password: {type:String,required:true},
     email: {type:String,required:true},
-    age: {type:String}
+    faculty: {type:String,required:true},
+    role: {type:Number,required:true}
 })
 /* mongoose.model() compila el json del modelo y lo convierte en modelo de mongoose*/
 module.exports = mongoose.model('users',UserSchema)
